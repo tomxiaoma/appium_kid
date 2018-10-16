@@ -19,7 +19,7 @@ public class KidParentTest extends AppiumDriverInit{
         try {
             AppiumDriverInit.openAppInit();
             Thread.sleep(3000);
-            logger.error("初始化成功，执行中.....");
+            logger.error("初始化成功，执行中......");
         } catch (Exception e) {
             logger.error("初始化失败，执行错误");
         }
