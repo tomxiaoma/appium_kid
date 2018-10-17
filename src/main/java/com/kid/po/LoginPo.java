@@ -1,7 +1,7 @@
 package com.kid.po;
 
 /**
- * 登录页面(包含第一页和下一页)
+ * 登录页面(包含首页和下一页)
  */
 public class LoginPo {
 
