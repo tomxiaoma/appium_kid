@@ -1,4 +1,4 @@
-package com.kid.server;
+package com.kid.service;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;

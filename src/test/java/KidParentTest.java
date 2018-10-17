@@ -1,10 +1,13 @@
 import com.kid.driver.AppiumDriverInit;
 import com.kid.log4j.LoggerControler;
 import com.kid.po.LoginPo;
-import com.kid.server.SwipeScreen;
-import io.appium.java_client.AppiumDriver;
+import com.kid.service.FindElementUtils;
+import com.kid.service.SwipeScreen;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -32,11 +35,11 @@ public class KidParentTest extends AppiumDriverInit{
         }
         Thread.sleep(1000);
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
-        driver.findElementById(LoginPo.lginInputText).sendKeys("15900796431");
-        driver.findElementById(LoginPo.loginNextButton).click();
+        FindElementUtils.findElement(By.id(LoginPo.lginInputText)).sendKeys("15900796431");
+        FindElementUtils.findElement(By.id(LoginPo.loginNextButton)).click();
         Thread.sleep(1000);
-        driver.findElementById(LoginPo.loginNextInputText).sendKeys("123123");
-        driver.findElementById(LoginPo.loginButton).click();
+        FindElementUtils.findElement(By.id(LoginPo.loginNextInputText)).sendKeys("123123");
+        FindElementUtils.findElement(By.id(LoginPo.loginButton)).click();
     }
 
     @AfterTest
