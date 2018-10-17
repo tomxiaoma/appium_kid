@@ -11,7 +11,7 @@ public class LoginPo {
     public static String lginInputText = "com.yiqizhangda.parent.test:id/et_phone_activity_login";
 
     /**
-     * 下一按钮
+     * 下一步按钮
      */
     public static String loginNextButton = "com.yiqizhangda.parent.test:id/btn_nextstep_activity_login";
 

@@ -9,8 +9,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-
 
 public class KidParentTest extends AppiumDriverInit{
     final static LoggerControler logger = LoggerControler.getLoggerControler(KidParentTest.class);
@@ -20,7 +18,7 @@ public class KidParentTest extends AppiumDriverInit{
         try {
             AppiumDriverInit.openAppInit();
             Thread.sleep(3000);
-            logger.error("初始化成功，执行中......");
+            logger.info("初始化成功，执行中......");
         } catch (Exception e) {
             logger.error("初始化失败，执行错误");
         }

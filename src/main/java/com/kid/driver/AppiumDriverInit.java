@@ -12,7 +12,7 @@ public class AppiumDriverInit {
     public static AppiumDriver driver;
     final static LoggerControler logger = LoggerControler.getLoggerControler(AppiumDriverInit.class);
 
-    public static void openAppInit() throws InterruptedException, MalformedURLException {
+    public static void openAppInit() throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName","Android Emulator");
