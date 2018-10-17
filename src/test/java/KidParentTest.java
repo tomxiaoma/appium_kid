@@ -1,5 +1,6 @@
 import com.kid.driver.AppiumDriverInit;
 import com.kid.log4j.LoggerControler;
+import com.kid.po.LoginPo;
 import com.kid.server.SwipeScreen;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -33,11 +34,11 @@ public class KidParentTest extends AppiumDriverInit{
         }
         Thread.sleep(1000);
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
-        driver.findElementById("com.yiqizhangda.parent.test:id/et_phone_activity_login").sendKeys("15900796431");
-        driver.findElementById("com.yiqizhangda.parent.test:id/btn_nextstep_activity_login").click();
+        driver.findElementById(LoginPo.lginInputText).sendKeys("15900796431");
+        driver.findElementById(LoginPo.loginNextButton).click();
         Thread.sleep(1000);
-        driver.findElementById("com.yiqizhangda.parent.test:id/et_pwd_activity_input_pwd").sendKeys("123123");
-        driver.findElementById("com.yiqizhangda.parent.test:id/btn_next_step_activity_input_pwd").click();
+        driver.findElementById(LoginPo.loginNextInputText).sendKeys("123123");
+        driver.findElementById(LoginPo.loginButton).click();
     }
 
     @AfterTest
