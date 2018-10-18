@@ -6,7 +6,7 @@ import java.io.File;
 
 
 /**
- * Created by xiaoma on 2018/2/10.
+ * Created by xiaoma on 2018/10/10.
  */
 public class MyFile {
     private final static LoggerControler logger = LoggerControler.getLoggerControler(MyFile.class);

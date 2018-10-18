@@ -4,6 +4,7 @@ import com.kid.po.LoginPo;
 import com.kid.service.Actions;
 import com.kid.service.SwipeScreen;
 import com.kid.utils.ExcelUtil;
+import com.kid.utils.ScreenShot;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
@@ -46,6 +47,7 @@ public class KidParentTest extends AppiumDriverInit{
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
         logger.info("开始读取查找并读取excel中的测试数据.....");
         Actions.sendKeyValue(By.id(LoginPo.lginInputText),data.get("acct"));
+        ScreenShot.screenShots();
         Actions.clickButton(By.id(LoginPo.loginNextButton));
         Actions.sendKeyValue(By.id(LoginPo.loginNextInputText),data.get("pwd"));
         Actions.clickButton(By.id(LoginPo.loginButton));

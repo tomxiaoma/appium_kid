@@ -6,7 +6,7 @@ import com.kid.log4j.LoggerControler;
 import java.util.Random;
 
 /**
- * Created by xiaoma on 2018/1/10.
+ * Created by xiaoma on 2018/10/10.
  */
 public class RandomNum {
     private final static LoggerControler logger = LoggerControler.getLoggerControler(RandomNum.class);
