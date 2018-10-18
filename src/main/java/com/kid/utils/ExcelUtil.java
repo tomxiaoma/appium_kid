@@ -3,6 +3,7 @@ package com.kid.utils;
 import com.kid.log4j.LoggerControler;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -92,6 +94,7 @@ public class ExcelUtil {
      * @return
      */
     public static String getCellValue(Sheet sheet, int rowNum, int cellNum) {
+        DataFormatter formatter = new DataFormatter();
         Cell cell = sheet.getRow(rowNum).getCell(cellNum);
         String value = ExcelUtil.getCellValue(cell);
         return value;
@@ -107,12 +110,14 @@ public class ExcelUtil {
 
     public static String getCellValue(Cell cell) {
         String value = "";
+        //增加转换方法
+        DecimalFormat df = new DecimalFormat("0");
         switch (cell.getCellTypeEnum()) {
             case STRING:
                 value = String.valueOf(cell.getRichStringCellValue());
                 return value;
             case NUMERIC:
-                value = String.valueOf(cell.getNumericCellValue());
+               value = df.format(cell.getNumericCellValue());
                 return value;
             case BOOLEAN:
                 value = String.valueOf(cell.getBooleanCellValue());

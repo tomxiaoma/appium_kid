@@ -2,16 +2,17 @@ import com.kid.driver.AppiumDriverInit;
 import com.kid.log4j.LoggerControler;
 import com.kid.po.LoginPo;
 import com.kid.service.Actions;
-import com.kid.service.FindElementUtils;
 import com.kid.service.SwipeScreen;
+import com.kid.utils.ExcelUtil;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
 
 
 public class KidParentTest extends AppiumDriverInit{
@@ -28,17 +29,25 @@ public class KidParentTest extends AppiumDriverInit{
         }
     }
 
-    @Test
-    public void TestKid() throws Exception{
+    @DataProvider(name = "testData")
+    public Object[][] data() {
+        ExcelUtil testcase = new ExcelUtil();
+        return testcase.testData("F:\\kid.xlsx");
+    }
+
+
+    @Test(dataProvider = "testData")
+    public void TestKid(HashMap<String, String> data) throws Exception{
         for (int i=1;i<6;i++){
             logger.info("引导页面滑动,第"+i+"次....");
             SwipeScreen.swipeLeft(driver);
         }
         Thread.sleep(1000);
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
-        Actions.sendKeyValue(By.id(LoginPo.lginInputText),"15900796431");
+        logger.info("开始读取查找并读取excel中的测试数据.....");
+        Actions.sendKeyValue(By.id(LoginPo.lginInputText),data.get("acct"));
         Actions.clickButton(By.id(LoginPo.loginNextButton));
-        Actions.sendKeyValue(By.id(LoginPo.loginNextInputText),"123123");
+        Actions.sendKeyValue(By.id(LoginPo.loginNextInputText),data.get("pwd"));
         Actions.clickButton(By.id(LoginPo.loginButton));
     }
 
