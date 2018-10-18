@@ -12,6 +12,10 @@ import io.appium.java_client.touch.offset.PointOption;
  */
 public class SwipeScreen {
 
+    /**
+     *向上滑动屏幕
+     * @param driver
+     */
     public static void swipeUp(AppiumDriver driver) {
 
         int width = driver.manage().window().getSize().width;
@@ -21,6 +25,10 @@ public class SwipeScreen {
         action.perform();
     }
 
+    /**
+     *向下滑动屏幕
+     * @param driver
+     */
     public static void swipeDown(AppiumDriver driver) {
 
         int width = driver.manage().window().getSize().width;
@@ -30,6 +38,10 @@ public class SwipeScreen {
         action.perform();
     }
 
+    /**
+     *向左滑动屏幕
+     * @param driver
+     */
     public static void swipeLeft(AppiumDriver driver) {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
@@ -38,6 +50,10 @@ public class SwipeScreen {
         action.perform();
     }
 
+    /**
+     *向右滑动屏幕
+     * @param driver
+     */
     public static void swipeRight(AppiumDriver driver) {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
