@@ -7,8 +7,10 @@ import com.kid.utils.ExcelUtil;
 import com.kid.utils.ScreenShot;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
-import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -46,18 +48,32 @@ public class KidParentTest extends AppiumDriverInit{
         }
         Thread.sleep(1000);
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
-        logger.info("开始读取查找并读取excel中的测试数据.....");
+        logger.info("开始查找并读取excel中的测试数据.....");
         Actions.sendKeyValue(By.id(LoginPo.lginInputText),data.get("acct"));
         ScreenShot.screenShots();
         Actions.clickButton(By.id(LoginPo.loginNextButton));
         Actions.sendKeyValue(By.id(LoginPo.loginNextInputText),data.get("pwd"));
         Actions.clickButton(By.id(LoginPo.loginButton));
+
+        String toast="登录成功";
+        try {
+            Assert.assertNotNull(Actions.findElement(By.xpath(".//*[contains(@text,'"+ toast + "')]")));
+            logger.info("找到了==》"+toast);
+        } catch (Exception e) {
+            logger.error("未找到"+toast+",登录失败");
+        }
+
+        Actions.clickButton(By.id(LoginPo.nextButton));
+        Actions.clickButton(By.id(LoginPo.allowButton));
+
+
+
     }
 
     @AfterTest
     public void endTest(){
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             driver.closeApp();
             driver.quit();
             logger.info("退出成功");

@@ -28,7 +28,7 @@ public class Actions extends AppiumDriverInit {
             webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
             WebElement element = driver.findElement(by);
             element.click();
-            logger.info("您点击的元素是:"+by+"");
+            logger.info("您查找的元素是:"+by+"");
         }catch (Exception e){
             logger.error("元素"+by+"查找失败");
             e.printStackTrace();

@@ -22,6 +22,8 @@ public class AppiumDriverInit {
         capabilities.setCapability("appActivity","com.kid17.parent.ui.splash.SplashActivity" );
         capabilities.setCapability("autoAcceptAlerts","true");
         capabilities.setCapability("automationName", "UiAutomator2");
+        capabilities.setCapability("autoAcceptAlerts", true);
+
         driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }
 

@@ -37,4 +37,10 @@ public class LoginPo {
      */
 
     public static String allowButton = "com.android.packageinstaller:id/permission_allow_button";
+
+
+    /**
+     * 登录成功
+     */
+    public static String loginSuccess = ".//*[contains(@text,'\"登录成功\"')]";
 }
