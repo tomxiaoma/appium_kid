@@ -20,8 +20,8 @@ public class AppiumDriverInit {
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("appPackage", "com.yiqizhangda.parent.test");
         capabilities.setCapability("appActivity","com.kid17.parent.ui.splash.SplashActivity" );
-        capabilities.setCapability("appWaitActivity","com.kid17.parent.ui.splash.SplashActivity" );
-
+        capabilities.setCapability("autoAcceptAlerts","true");
+        //capabilities.setCapability("automationName", "UiAutomator2");
         driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }
 
