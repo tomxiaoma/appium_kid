@@ -24,4 +24,17 @@ public class LoginPo {
      * 登录按钮
      */
     public static String loginButton = "com.yiqizhangda.parent.test:id/btn_next_step_activity_input_pwd";
+
+
+    /**
+     * 跳过
+     */
+
+    public static String nextButton="com.yiqizhangda.parent.test:id/btn_skip_activity_guide";
+
+    /**
+     * 权限设置允许
+     */
+
+    public static String allowButton = "com.android.packageinstaller:id/permission_allow_button";
 }

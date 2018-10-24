@@ -7,6 +7,7 @@ import com.kid.utils.ExcelUtil;
 import com.kid.utils.ScreenShot;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -39,9 +40,9 @@ public class KidParentTest extends AppiumDriverInit{
 
     @Test(dataProvider = "testData")
     public void TestKid(HashMap<String, String> data) throws Exception{
-        for (int i=1;i<6;i++){
+        for (int i=1;i<5;i++){
+            SwipeScreen.swipeLeft();
             logger.info("引导页面滑动,第"+i+"次....");
-            SwipeScreen.swipeLeft(driver);
         }
         Thread.sleep(1000);
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
