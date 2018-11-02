@@ -1,6 +1,7 @@
 package com.kid.driver;
 
 import com.kid.log4j.LoggerControler;
+import com.kid.utils.PropertiesGet;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -15,16 +16,15 @@ public class AppiumDriverInit {
     public static void openAppInit() throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName","Android Emulator");
-        capabilities.setCapability("platformVersion", "8.0");
-        capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("appPackage", "com.yiqizhangda.parent.test");
-        capabilities.setCapability("appActivity","com.kid17.parent.ui.splash.SplashActivity" );
-        capabilities.setCapability("autoAcceptAlerts","true");
-        capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("autoAcceptAlerts", true);
+        capabilities.setCapability("deviceName",PropertiesGet.getValueProperties("deviceName"));
+        capabilities.setCapability("platformVersion", PropertiesGet.getValueProperties("platformVersion"));
+        capabilities.setCapability("platformName",PropertiesGet.getValueProperties("platformName"));
+        capabilities.setCapability("appPackage", PropertiesGet.getValueProperties("appPackage"));
+        capabilities.setCapability("appActivity",PropertiesGet.getValueProperties("appActivity"));
+        capabilities.setCapability("automationName", PropertiesGet.getValueProperties("automationName"));
+        capabilities.setCapability("autoAcceptAlerts",  PropertiesGet.getValueProperties("autoAcceptAlerts"));
 
-        driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AppiumDriver(new URL(PropertiesGet.getValueProperties("url")), capabilities);
     }
 
 }

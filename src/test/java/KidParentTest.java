@@ -42,6 +42,7 @@ public class KidParentTest extends AppiumDriverInit{
 
     @Test(dataProvider = "testData")
     public void TestKid(HashMap<String, String> data) throws Exception{
+            logger.info("开始滑动引导页......");
         for (int i=1;i<5;i++){
             SwipeScreen.swipeLeft();
             logger.info("引导页面滑动,第"+i+"次....");
@@ -50,7 +51,6 @@ public class KidParentTest extends AppiumDriverInit{
         new TouchAction(driver).tap(PointOption.point(392, 980)).perform().release();
         logger.info("开始查找并读取excel中的测试数据.....");
         Actions.sendKeyValue(By.id(LoginPo.lginInputText),data.get("acct"));
-        ScreenShot.screenShots();
         Actions.clickButton(By.id(LoginPo.loginNextButton));
         Actions.sendKeyValue(By.id(LoginPo.loginNextInputText),data.get("pwd"));
         Actions.clickButton(By.id(LoginPo.loginButton));
@@ -58,6 +58,7 @@ public class KidParentTest extends AppiumDriverInit{
         String toast="登录成功";
         try {
             Assert.assertNotNull(Actions.findElement(By.xpath(".//*[contains(@text,'"+ toast + "')]")));
+            ScreenShot.screenShots();
             logger.info("找到了==》"+toast);
         } catch (Exception e) {
             logger.error("未找到"+toast+",登录失败");
