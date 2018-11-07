@@ -8,8 +8,6 @@ import com.kid.utils.ScreenShot;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -19,8 +17,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 
-public class KidParentTest extends AppiumDriverInit{
-    final static LoggerControler logger = LoggerControler.getLoggerControler(KidParentTest.class);
+public class LoginTest extends AppiumDriverInit{
+    final static LoggerControler logger = LoggerControler.getLoggerControler(LoginTest.class);
 
     @BeforeTest
     public void InitDriver(){
