@@ -7,6 +7,7 @@ import com.kid.utils.ExcelUtil;
 import com.kid.utils.ScreenShot;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -38,6 +39,7 @@ public class LoginTest extends AppiumDriverInit{
     }
 
 
+    @Feature("登录并初始化")
     @Test(dataProvider = "testData")
     public void TestKid(HashMap<String, String> data) throws Exception{
             logger.info("开始滑动引导页......");
