@@ -1,5 +1,7 @@
 import com.kid.utils.ExcelUtil;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -14,7 +16,8 @@ public class ExcelTest {
     }
 
 
-    @Feature("获取数据源")
+    @Feature("数据源")
+    @Stories(value = {@Story(value="提取数据源中数据")})
     @Test(dataProvider = "testData")
     public void testCase(HashMap<String, String> data) {
         System.out.println(data.get("acct"));
